@@ -8,8 +8,8 @@
 
 
 int main(){
-    // Opening the File
-    // std::ifstream file("Laptop_Data.csv");
+    // // Opening the File
+    // std::ifstream file("Student_Performance.csv");
     // if (!file.is_open()){
     //     std::cerr << "Cannot Open File" << std::endl;
     // }
@@ -29,73 +29,75 @@ int main(){
     //     std::cout << std::endl;
     // }    
 
-    // /* Creating Arrays for Each feature 
-    // (Using only some features 
-    // and will expand on the model later on )
-    // */
-
-    // std::vector<std::string> Company;
-    // std::vector<std::string> TypeName;
-    // std::vector<int> Inches;
-    // std::vector<std::string> Ram;
-    // std::vector<std::string> Memory;
-    // std::vector<std::string> Price;
-
-
+    // IntMatrix X , Y;
+    // intRow x , y;
+    
     // // Processing CSV file into each vector
     // int index = 0;
-    // while (std::getline(file, line)){
+    // int linecount = 0;
+    // while (std::getline(file, line) && linecount < 10){
     //     index = 0;
     //     std::stringstream ss(line);
+        
     //     while(std::getline(ss, word, ',')){
-    //         switch (index) {
-    //         case 1:
-    //             Company.push_back(word);
-    //             break;
-    //         case 3:
-    //             Inches.push_back(stoi(word));
-    //         case 2:
-    //             TypeName.push_back(word);
-    //             break;
-    //         case 6:
-    //             Ram.push_back(word);
-    //             break;
-    //         case 7:
-    //             Memory.push_back(word);
-    //             break;
-    //         case 11:
-    //             Price.push_back(word);
-    //             break;  
-    //         default:
-    //             break;
+    //         if (index == 5){
+    //             y.push_back(stof(word)); 
+    //         }
+    //         else if (index == 2){
+    //             if (word == "Yes"){
+    //             x.push_back(1);
+    //             }
+    //             else{
+    //                 x.push_back(0);
+    //             }
+    //         }
+    //         else{
+    //             x.push_back(stoi(word));
     //         }
     //         index++;
-    //     }  
+    //     }
+    
+    //     linecount++;
+    //     X.push_back(x);
+    //     Y.push_back(y);
+    //     x.clear();
+    //     y.clear();
     // }
+    
+
 
     // Training the Model on Data 
-    
-    // Testing Matrix Operations
-    // IntMatrix x,y;
-    // x = FillMatrix();
-    // y = FillMatrix();
-    // std::cout << "\n\n\n" << std::endl;
-    // DisplayMatrix(x);
-    // std::cout << std::endl;
-    // std:: cout << "Multiplying with " << std::endl;
-    // DisplayMatrix(y);
-    // std::cout << std::endl;
-    // IntMatrix c = multiply(x,y);
-    // std::cout << "\n\n" << std::endl;
-    // DisplayMatrix(c);
+    // Training Model on my own Data
+    IntMatrix X = FillMatrix();
+    IntMatrix Y = FillMatrix();
+    std::cout << "Going to compute the transpose of the matrix" << std::endl;
+    IntMatrix Step1 = transpose(X);        // Step 1: Transpose of X
+    IntMatrix Step2 = multiply(Step1, X);  // Step 2: Multiply transpose(X) with X
+    std::cout << " OK ITS not THE MULTIPLY FUNCTION " << std::endl;
+    IntMatrix Step3 = inverse(Step2);      // Step 3: Inverse of the result from Step 2
+    IntMatrix Step4 = multiply(Step3, Step1);  // Step 4: Multiply inverse with transpose(X)
+    IntMatrix B = multiply(Step4, Y);      // Step 5: Multiply the result with Y
 
-    // // Testing Inverse
-    IntMatrix x;
-    x = FillMatrix();
-    std::cout << "\n\n" << std::endl;
-    x = inverse(x);
-    std::cout << "\n\n Outputing the Final matrix \n\n" << std::endl;
-    DisplayMatrix(x);
+
+    std::cout << " The parameters are : " <<std::endl;
+    DisplayMatrix(B);
+    IntMatrix Yhat = multiply(X,B);
+    for (int i = 0 ; i < 10 ; i ++){
+        std::cout << "The Predicted output is " << Yhat[i][0] <<" and the real value is " << Y[i][0] << std::endl; 
+    }
+
+
+
+
+
+
+    // // // Testing Inverse
+    // IntMatrix x;
+    // x = FillMatrix();
+    // std::cout << "\n\n" << std::endl;
+    // x = inverse(x);
+    // std::cout << "\n\n Outputing the Final matrix \n\n" << std::endl;
+    // DisplayMatrix(x);
 
 
     return 0;
