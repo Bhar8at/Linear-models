@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Compile the C++ files
-g++ main.cpp matrix.cpp matrixui.cpp RowTransform.cpp -o my_program
+# Compile the main program along with matrix functions
+g++ main.cpp external/linear-algebra-framework/matrix.cpp \
+    external/linear-algebra-framework/matrixui.cpp \
+    external/linear-algebra-framework/RowTransform.cpp \
+    -Iexternal/linear-algebra-framework \
+    -o my_program
 
 # Check if compilation was successful
 if [ $? -eq 0 ]; then

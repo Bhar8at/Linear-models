@@ -1,0 +1,3 @@
+[submodule "external/linear-algebra-framework"]
+	path = external/linear-algebra-framework
+	url = https://github.com/Bhar8at/Linear-Algebra-Framework.git
