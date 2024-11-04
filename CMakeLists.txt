@@ -12,7 +12,7 @@ set(SOURCES
     matrixui.cpp
 )
 
-# Specify the header files (optional, but good for IDEs)
+# Specify the header files 
 set(HEADERS
     RowTransform.h
     matrix.h
@@ -22,5 +22,5 @@ set(HEADERS
 # Create a library from the source files
 add_library(LinearAlgebraFramework STATIC ${SOURCES} ${HEADERS})
 
-# Optionally, you can also specify include directories if needed
+
 target_include_directories(LinearAlgebraFramework PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

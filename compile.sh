@@ -9,7 +9,8 @@ g++ main.cpp external/linear-algebra-framework/matrix.cpp \
 
 # Check if compilation was successful
 if [ $? -eq 0 ]; then
-    echo "Compilation successful! Run ./my_program to execute."
+    echo "Compilation successful!"
+    ./my_program
 else
     echo "Compilation failed."
 fi
