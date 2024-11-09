@@ -10,7 +10,7 @@
 std::pair<IntMatrix, IntMatrix> parse_csv(){
 
     // Opening the File
-    std::ifstream file("Student_Performance.csv");
+    std::ifstream file("MultipleLinearRegression/Student_Performance.csv");
 
     if (!file.is_open()){
 
