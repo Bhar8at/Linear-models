@@ -7,10 +7,10 @@
 #include "../external/linear-algebra-framework/matrixui.h"
 #include "../external/linear-algebra-framework/RowTransform.h"
 
-std::pair<IntMatrix, IntMatrix> parse_csv(){
+std::pair<IntMatrix, IntMatrix> parse_csv_LR(){
 
     // Opening the File
-    std::ifstream file("LogisticRegression/Student_Performance.csv");
+    std::ifstream file("LogisticRegression/Dataset.csv");
 
     if (!file.is_open()){
 
