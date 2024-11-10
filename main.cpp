@@ -2,5 +2,6 @@
 
 int main(){
     
-    MultipleLinearRegression();
+    // MultipleLinearRegression();
+    
 }
