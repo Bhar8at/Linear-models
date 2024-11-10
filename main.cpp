@@ -1,5 +1,5 @@
 #include "MultipleLinearRegression/MultipleLinearRegression.cpp"
-#include "LogisticRegression/LogisticRegression.cpp"
+#include "LogisticRegression/LRmain.cpp"
 
 int main(){
     
