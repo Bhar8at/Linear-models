@@ -10,4 +10,4 @@ Implementing Linear models from the ground up in C++ by using my Linear Algebra 
       - Implemented using Gradient Ascent
       
 
-To change the model to run modify the main.cpp file .
+To switch models modify the main.cpp file .
